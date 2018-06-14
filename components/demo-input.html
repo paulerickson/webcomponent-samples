@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<template id="demo-input-template">
+  <div>
+    <h1 name="bind-data-sample"></h1>
+    <h2 name="bind-data-sample"></h2>
+    <h3 name="bind-data-sample"></h3>
+    <input name="bind-data-sample" placeholder="sample">
+    <input name="bind-data-sample" disabled>
+  </div>
+</template>
+
+<script src="base-component.js"></script>
+
+<script>
+
+  class DemoInput extends BaseComponent {
+
+    constructor(config) {
+      super(config);
+    }
+
+    static get observedAttributes() {
+      return ['data-sample'];
+    }
+
+  }
+
+  DemoInput.template = document.currentScript.ownerDocument.getElementById('demo-input-template');
+  customElements.define('demo-input', DemoInput);
+
+</script>
